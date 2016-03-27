@@ -15,13 +15,11 @@ Route::get('learn', function() {
 	return view('learn');
 });
 
-Route::get('/', function () {	
+Route::get('/', function(Request $request) {
     return view('login');
 });
 
-Route::get('test', function() {
-	return 'This is for test.';
-});
+Route::get('test', 'LoginController@test');
 
 Route::get('register', function() {
     return view('register');

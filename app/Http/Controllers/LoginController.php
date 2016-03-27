@@ -9,6 +9,11 @@ use App\Http\Requests;
 
 class LoginController extends Controller {
 
+    public function test(Request $request) {
+        $request->session()->put('abc', 'lcg');
+        // return $request->session()->get('key', 'default');
+    }
+
     public function login() {
         return view('wellcome');
     }
@@ -18,6 +23,11 @@ class LoginController extends Controller {
         $user = User::where('account', '=', $request->input('acc'), 'and')->where('password', '=', $request->input('pass'))->get();
 
         $isRegister = $user->count() > 0 ? true : false;
+
+        if ($isRegister) {
+            
+            
+        }
 
         return response()->json($isRegister);
     }
